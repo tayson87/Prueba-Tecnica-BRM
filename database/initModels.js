@@ -1,9 +1,9 @@
 // Import Models
-const { User } = require("../models/user.model");
-const { Product } = require("../models/product.model");
-const { Cart } = require("../models/cart.model");
-const { ProductInCart } = require("../models/productsInCart.model");
-const { Order } = require("../models/order.model");
+const { User } = require("../models/user");
+const { Product } = require("../models/product");
+const { Cart } = require("../models/cart");
+const { ProductInCart } = require("../models/productsInCart");
+const { Order } = require("../models/order");
 
 const initModels = () => {
   // 1 User <--> M Product

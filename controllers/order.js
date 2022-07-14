@@ -1,8 +1,8 @@
 // Import Models
-const { Cart } = require("../models/cart.model");
-const { Order } = require("../models/order.model");
-const { Product } = require("../models/product.model");
-const { User } = require("../models/user.model");
+const { Cart } = require("../models/cart");
+const { Order } = require("../models/order");
+const { Product } = require("../models/product");
+const { User } = require("../models/user");
 
 // Import Utils
 const { catchAsync } = require("../utils/catchAsync");

@@ -8,13 +8,13 @@ const {
   getOwnOrderById,
   getAllOrders,
   getOrderById
-} = require("../controllers/order.controllers");
+} = require("../controllers/order");
 
 // Import Middlewares
 const {
   validateSession,
   protectAdmin
-} = require("../middlewares/auth.middleware");
+} = require("../middlewares/auth");
 
 // Routes
 router.use(validateSession);

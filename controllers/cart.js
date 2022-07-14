@@ -1,9 +1,9 @@
 // Import Models
-const { Cart } = require("../models/cart.model");
-const { Product } = require("../models/product.model");
-const { ProductInCart } = require("../models/productsInCart.model");
-const { Order } = require("../models/order.model");
-const { User } = require("../models/user.model");
+const { Cart } = require("../models/cart");
+const { Product } = require("../models/product");
+const { ProductInCart } = require("../models/productsInCart");
+const { Order } = require("../models/order");
+const { User } = require("../models/user");
 
 // Import Utils
 const { AppError } = require("../utils/appError");

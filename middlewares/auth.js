@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const { promisify } = require("util");
 
 // Import Models
-const { User } = require("../models/user.model");
+const { User } = require("../models/user");
 
 // Import Utils
 const { AppError } = require("../utils/appError");

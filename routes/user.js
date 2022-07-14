@@ -10,17 +10,17 @@ const {
   getUserById,
   updateUser,
   deleteUser
-} = require("../controllers/user.controller");
+} = require("../controllers/user");
 
 // Import Middlewares
 const {
   createUserValidators,
   validationResults
-} = require("../middlewares/validators.middleware");
+} = require("../middlewares/validators");
 const {
   validateSession,
   protectAccountOwner
-} = require("../middlewares/auth.middleware");
+} = require("../middlewares/auth");
 
 // Routes
 router.post("/signup", createUserValidators, validationResults, createNewUser);

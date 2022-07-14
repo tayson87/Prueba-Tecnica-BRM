@@ -9,14 +9,14 @@ const {
   updateCartProduct,
   removeProductCart,
   purchaseCart
-} = require("../controllers/cart.controllers");
+} = require("../controllers/cart");
 
 // Import Middlewares
 const {
   addProductToCartValidation,
   validationResults
-} = require("../middlewares/validators.middleware");
-const { validateSession } = require("../middlewares/auth.middleware");
+} = require("../middlewares/validators");
+const { validateSession } = require("../middlewares/auth");
 
 // Routes
 router.use(validateSession);
