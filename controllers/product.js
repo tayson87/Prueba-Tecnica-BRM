@@ -7,6 +7,35 @@ const { catchAsync } = require("../utils/catchAsync");
 const { filterObj } = require("../utils/filterObj");
 
 
+exports.productById = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+  
+    const product = await Product.findOne({ where: { status: "active", id } });
+  
+    if (!product) {
+      return next(new AppError(404, "No product found"));
+    }
+  
+    res.status(200).json({
+      status: "success",
+      data: {
+        product
+      }
+    });
+  });
+
+exports.getAllProducts = catchAsync(async (req, res, next) => {
+    const products = await Product.findAll({ where: { status: "active" } });
+  
+    res.status(200).json({
+      status: "success",
+      data: {
+        products
+      }
+    });
+  });
+
+
 exports.createProduct = catchAsync(async (req, res, next) => {
     const { batchNumber, name, price, quantityAvailable } = req.body;
   
@@ -28,15 +57,49 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     });
   });
 
-  exports.getAllProducts = catchAsync(async (req, res, next) => {
-    const products = await Product.findAll({ where: { status: "active" } });
+  exports.updateProduct = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
   
-    res.status(200).json({
-      status: "success",
-      data: {
-        products
-      }
+    const product = await Product.findOne({ where: { status: "active", id } });
+  
+    if (!product) {
+      return next(new AppError(404, "No product found"));
+    }
+  
+    const data = filterObj(
+      req.body,
+      "batchNumber",
+      "name",
+      "price",
+      "quantityAvailable"
+    );
+  
+    await product.update({ ...data });
+  
+    res.status(204).json({
+      status: "success"
     });
   });
+
+  exports.deleteUser = catchAsync(async (req, res, next) => {
+    const { id } = req.params;
+  
+    const product = await Product.findOne({ where: { status: "active", id } });
+  
+    if (!product) {
+      return next(new AppError(404, "No product found"));
+    }
+  
+    // This is a soft delete technical
+    await product.update({ status: "deleted" });
+  
+    res.status(204).json({
+      status: "success"
+    });
+  });
+
+  
+
+  
 
   
