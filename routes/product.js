@@ -9,17 +9,17 @@ const {
   productById,
   deleteUser,
   updateProduct
-} = require("../controllers/product.controller");
+} = require("../controllers/product");
 
 // Import Middlewares
 const {
   createProductValidators,
   validationResults
-} = require("../middlewares/validators.middleware");
+} = require("../middlewares/validators");
 const {
   validateSession,
   protectAdmin
-} = require("../middlewares/auth.middleware");
+} = require("../middlewares/auth");
 
 // Routes
 router.use(validateSession);
